@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>On Black</title>
     <link rel="icon" href="img/logo-removebg-preview.png" type="image/png" style="border-radius: 50%;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,23 +12,31 @@
             --black: #000;
             --gray-dark: #222;
             --font-main: 'Arial', sans-serif;
+            --padding-unit: 1rem;
+            --font-size-base: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: var(--font-main);
             background-color: var(--black);
             color: #fff;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Scrollbar styling */
         ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
         }
 
         ::-webkit-scrollbar-track {
@@ -37,14 +45,13 @@
 
         ::-webkit-scrollbar-thumb {
             background: var(--gold);
-            border-radius: 5px;
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
             background: #e6c200;
         }
 
-        /* For Firefox */
         * {
             scrollbar-color: var(--gold) #111;
             scrollbar-width: thin;
@@ -54,62 +61,69 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 25px;
+            padding: var(--padding-unit);
             background-color: var(--black);
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
 
         header img.logo {
-            width: 50px;
+            width: clamp(40px, 10vw, 50px);
+            height: auto;
             border-radius: 50%;
         }
 
         .cart-icon {
             position: relative;
             cursor: pointer;
-            font-size: 22px;
+            font-size: clamp(1.2rem, 5vw, 1.4rem);
             color: var(--gold);
+            padding: 0.5rem;
         }
 
         .cart-count {
             position: absolute;
-            top: -8px;
-            right: -12px;
+            top: -6px;
+            right: -8px;
             background-color: var(--gold);
             color: var(--black);
             border-radius: 50%;
             padding: 2px 6px;
-            font-size: 12px;
+            font-size: clamp(0.6rem, 2vw, 0.75rem);
             font-weight: bold;
         }
 
         .menu-icon {
-            font-size: 24px;
+            font-size: clamp(1.2rem, 5vw, 1.5rem);
             color: var(--gold);
-            display: none;
             cursor: pointer;
+            padding: 0.5rem;
+            display: none;
         }
 
         .search-container {
-            margin: 15px 25px;
+            margin: var(--padding-unit);
+            width: 100%;
+            max-width: 600px;
         }
 
         .search-container input {
             width: 100%;
-            padding: 8px;
+            padding: 0.75rem;
             border: 1px solid var(--gold);
             border-radius: 4px;
             background-color: #111;
             color: #fff;
+            font-size: clamp(0.9rem, 3vw, 1rem);
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            padding: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(1rem, 3vw, 1.5rem);
+            padding: var(--padding-unit);
         }
 
         .product {
@@ -117,7 +131,7 @@
             border-radius: 8px;
             overflow: hidden;
             text-align: center;
-            padding: 15px;
+            padding: 1rem;
             transition: transform 0.2s;
             cursor: pointer;
         }
@@ -128,30 +142,33 @@
 
         .product img {
             width: 100%;
-            height: 250px;
+            height: clamp(200px, 50vw, 250px);
             object-fit: cover;
+            border-radius: 4px;
         }
 
         .product p.name {
-            margin: 10px 0 5px;
+            margin: 0.5rem 0;
             font-weight: bold;
-            font-size: 18px;
+            font-size: clamp(1rem, 4vw, 1.1rem);
         }
 
         .product p.price {
             color: var(--gold);
-            font-size: 16px;
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
         .product button {
-            margin-top: 10px;
+            margin-top: 0.5rem;
             background-color: var(--gold);
             color: var(--black);
             border: none;
             border-radius: 4px;
-            padding: 8px 15px;
+            padding: 0.5rem 1rem;
             cursor: pointer;
             font-weight: bold;
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
+            width: 100%;
             transition: background-color 0.3s;
         }
 
@@ -161,15 +178,17 @@
 
         footer {
             background-color: var(--gray-dark);
-            padding: 20px;
+            padding: var(--padding-unit);
             text-align: center;
             margin-top: auto;
+            width: 100%;
         }
 
         footer a {
-            margin: 0 10px;
+            margin: 0 0.5rem;
             color: var(--gold);
-            font-size: 20px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            transition: color 0.3s;
         }
 
         footer a:hover {
@@ -182,94 +201,82 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.9);
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 999;
+            z-index: 1000;
+            padding: 1rem;
         }
 
         .modal-content, .cart-content {
             background-color: #111;
-            padding: 20px;
+            padding: clamp(1rem, 5vw, 1.5rem);
             border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            color: white;
-            position: relative;
-            max-height: 80vh;
+            width: min(90vw, 500px);
+            max-height: 90vh;
             overflow-y: auto;
+            position: relative;
+            color: white;
+            box-sizing: border-box;
         }
 
         .close-btn {
             position: absolute;
-            top: 10px;
-            right: 15px;
+            top: 0.5rem;
+            right: 0.75rem;
             cursor: pointer;
             color: var(--gold);
-            font-size: 20px;
+            font-size: clamp(1.2rem, 5vw, 1.5rem);
+            padding: 0.25rem;
         }
 
         .quantity-control {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin: 10px 0;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 0.75rem 0;
         }
 
         .quantity-control button {
             background-color: var(--gold);
             border: none;
-            padding: 5px 10px;
+            padding: 0.5rem;
             color: var(--black);
             font-weight: bold;
             cursor: pointer;
+            border-radius: 4px;
+            font-size: clamp(0.8rem, 3vw, 1rem);
+            min-width: 2rem;
         }
 
-        .btn-whatsapp {
+        .btn-whatsapp, .btn-cart {
             background-color: #25D366;
             color: #fff;
             border: none;
-            padding: 10px 16px;
+            padding: 0.75rem 1rem;
             border-radius: 30px;
-            font-size: 1rem;
-            font-weight: bold;
-            display: inline-flex;
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
+            font-weight: 600;
+            display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-whatsapp i {
-            font-size: 1.2rem;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #1DA851;
-            transform: scale(1.03);
+            width: 100%;
+            justify-content: center;
+            margin: 0.5rem 0;
         }
 
         .btn-cart {
             background-color: #FFC107;
             color: #111;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-right: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
         }
 
-        .btn-cart i {
-            font-size: 1.1rem;
+        .btn-whatsapp:hover {
+            background-color: #1DA851;
+            transform: scale(1.03);
         }
 
         .btn-cart:hover {
@@ -280,29 +287,32 @@
         #category-nav {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            position: absolute;
+            gap: 0.5rem;
+            position: fixed;
             top: 60px;
-            right: -200px;
-            background-color: rgba(17, 17, 17, 0.7);
-            width: 200px;
-            padding: 15px;
+            right: -100%;
+            background-color: rgba(17, 17, 17, 0.95);
+            width: min(80vw, 250px);
+            padding: var(--padding-unit);
             transition: right 0.3s ease;
             z-index: 1000;
+            height: calc(100vh - 60px);
+        }
+
+        #category-nav.active {
+            right: 0;
         }
 
         #category-nav button {
             background-color: #222;
-            color: #FFD700;
+            color: var(--gold);
             border: none;
-            padding: 10px;
-            font-size: 16px;
+            padding: 0.75rem;
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            white-space: nowrap;
-            overflow: visible;
-            text-overflow: unset;
+            text-align: left;
         }
 
         #category-nav button:hover {
@@ -311,14 +321,38 @@
 
         .loading {
             text-align: center;
-            padding: 20px;
+            padding: var(--padding-unit);
             color: var(--gold);
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
         .error-message {
             color: #ff4444;
             text-align: center;
-            padding: 20px;
+            padding: var(--padding-unit);
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
+        }
+
+        /* Media Queries */
+        @media (max-width: 480px) {
+            :root {
+                --font-size-base: 14px;
+                --padding-unit: 0.75rem;
+            }
+
+            header {
+                padding: 0.5rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .modal-content, .cart-content {
+                width: 95vw;
+                padding: 0.75rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -326,27 +360,40 @@
                 display: block;
             }
 
+            .search-container {
+                margin: 0.5rem;
+            }
+
             .search-container input {
-                font-size: 14px;
+                padding: 0.5rem;
             }
         }
 
-        @media(min-width: 769px) {
+        @media (min-width: 769px) {
             #category-nav {
                 flex-direction: row;
                 position: static;
-                background: none;
-                padding: 15px 25px;
-                gap: 20px;
+                background: rgba(17, 17, 17, 0.7);
+                padding: var(--padding-unit);
+                gap: 1rem;
                 justify-content: center;
                 width: 100%;
-                background-color: rgba(17, 17, 17, 0.7);
+                height: auto;
             }
 
             #category-nav button {
-                white-space: nowrap;
-                overflow: visible;
-                text-overflow: unset;
+                flex: 1;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .modal-content, .cart-content {
+                max-width: 600px;
             }
         }
     </style>
@@ -388,11 +435,9 @@
         let currentType = 'All';
         let searchQuery = '';
 
-        // Initialize cart count and modal close listeners on page load
         document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
             loadProducts();
-            // Add click listeners for closing modals
             document.getElementById('product-modal').addEventListener('click', (e) => {
                 if (e.target.classList.contains('modal')) {
                     document.getElementById('product-modal').style.display = 'none';
@@ -455,15 +500,15 @@
             renderProducts();
         }
 
+        function toggleMenu() {
+            const nav = document.getElementById('category-nav');
+            nav.classList.toggle('active');
+        }
+
         function filterByType(type) {
             currentType = type;
             renderProducts();
             if (window.innerWidth <= 768) toggleMenu();
-        }
-
-        function toggleMenu() {
-            const nav = document.getElementById('category-nav');
-            nav.style.right = nav.style.right === '0px' ? '-200px' : '0px';
         }
 
         function addToCart(id, quantity = 1, size) {
@@ -550,25 +595,25 @@
                 <div class="modal-content">
                     <span class="close-btn" onclick="document.getElementById('product-modal').style.display='none'">&times;</span>
                     <h3>${product.name}</h3>
-                    <img src="${product.image}" style="width:100%;height:auto;margin:10px 0;">
+                    <img src="${product.image}" style="width:100%;height:auto;margin:10px 0;border-radius:4px;">
                     <p>${product.description}</p>
-                    <label for="size-select" style="color: #FFD700; font-weight: 500; margin-bottom: 6px; display: block;">
+                    <label for="size-select" style="color: var(--gold); font-weight: 500; margin-bottom: 6px; display: block;">
                         Taille :
                     </label>
                     <select id="size-select" style="
                         background-color: #111; 
-                        color: #FFD700; 
-                        border: 1px solid #FFD700; 
+                        color: var(--gold); 
+                        border: 1px solid var(--gold); 
                         padding: 8px 12px; 
                         border-radius: 8px; 
-                        font-size: 15px; 
+                        font-size: clamp(0.8rem, 3vw, 0.9rem); 
                         outline: none;
-                        appearance: none;
+                        width: 100%;
                         cursor: pointer;
                         transition: border 0.3s ease, background 0.3s ease;
                     ">
                         ${product.sizes.map(size => `
-                            <option value="${size}" style="background-color: #111; color: #FFD700;">${size}</option>
+                            <option value="${size}" style="background-color: #111; color: var(--gold);">${size}</option>
                         `).join('')}
                     </select>
                     <div class="quantity-control" style="margin: 15px 0;">
@@ -578,10 +623,10 @@
                     </div>
                     <p style="color:var(--gold)">${product.price} FCFA</p>
                     <button onclick="addToCart('${product.id}', parseInt(document.getElementById('modal-quantity').textContent), document.getElementById('size-select').value)" class="btn-cart">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-shopping-cart"></i> Ajouter au panier
                     </button>
                     <button onclick="whatsAppSingleOrder()" class="btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i>
+                        <i class="fab fa-whatsapp"></i> Commander via WhatsApp
                     </button>
                 </div>
             `;
