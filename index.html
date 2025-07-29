@@ -73,6 +73,8 @@
             width: clamp(40px, 10vw, 50px);
             height: auto;
             border-radius: 50%;
+            order: 2;
+            margin: 0 auto;
         }
 
         .cart-icon {
@@ -81,6 +83,7 @@
             font-size: clamp(1.2rem, 5vw, 1.4rem);
             color: var(--gold);
             padding: 0.5rem;
+            order: 1;
         }
 
         .cart-count {
@@ -100,6 +103,7 @@
             color: var(--gold);
             cursor: pointer;
             padding: 0.5rem;
+            order: 3;
             display: none;
         }
 
@@ -399,12 +403,12 @@
 </head>
 <body>
     <header>
-        <img src="img/logo.jpg" class="logo" alt="On Black Logo">
-        <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <div class="cart-icon" onclick="toggleCart()">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="cart-count">0</span>
         </div>
+        <img src="img/logo.jpg" class="logo" alt="On Black Logo">
+        <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     </header>
     <nav id="category-nav">
         <button onclick="filterByType('All')">Tous</button>
@@ -433,7 +437,7 @@
         let allProducts = [];
         let currentType = 'All';
         let searchQuery = '';
-        const websiteUrl = 'https://onblack.com'; // Replace with actual website URL
+        const websiteUrl = 'https://onblack.com';
 
         document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
