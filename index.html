@@ -333,7 +333,6 @@
             font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
-        /* Media Queries */
         @media (max-width: 480px) {
             :root {
                 --font-size-base: 14px;
@@ -434,6 +433,7 @@
         let allProducts = [];
         let currentType = 'All';
         let searchQuery = '';
+        const websiteUrl = 'https://onblack.com'; // Replace with actual website URL
 
         document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
@@ -578,8 +578,20 @@
 
         function whatsAppOrder() {
             if (cart.length === 0) return;
-            const message = cart.map(p => `${p.name} - Taille ${p.size} x${p.quantity} (${p.price * p.quantity} FCFA)`).join('\n') +
-                `\nTotal: ${cart.reduce((sum, p) => sum + p.price * p.quantity, 0)} FCFA`;
+            const total = cart.reduce((sum, p) => sum + p.price * p.quantity, 0);
+            const message = `🌟 *On Black - Votre Commande* 🌟\n\n` +
+                `📋 *Récapitulatif de votre commande :*\n` +
+                cart.map((p, i) => 
+                    `${i + 1}. ${p.name}\n` +
+                    `   Taille: ${p.size}\n` +
+                    `   Quantité: ${p.quantity}\n` +
+                    `   Prix: ${p.price * p.quantity} FCFA`
+                ).join('\n\n') +
+                `\n💰 *Total*: ${total} FCFA\n\n` +
+                `Merci de faire vos achats chez On Black ! 😎\n` +
+                `Pour finaliser votre commande, veuillez confirmer les détails.\n` +
+                `🛒 Découvrez plus sur ${websiteUrl}\n` +
+                `📩 Répondez à ce message pour toute question !`;
             const phone = '237694103585';
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
@@ -642,10 +654,21 @@
         function whatsAppSingleOrder() {
             const p = selectedProduct;
             const size = document.getElementById('size-select').value;
-            const quantity = document.getElementById('modal-quantity').textContent;
-            const msg = `${p.name}\n${p.description}\nTaille: ${size}\nQuantité: ${quantity}\nPrix: ${p.price * quantity} FCFA`;
+            const quantity = parseInt(document.getElementById('modal-quantity').textContent);
+            const total = p.price * quantity;
+            const message = `🌟 *On Black - Commande de Produit* 🌟\n\n` +
+                `📋 *Détails du produit :*\n` +
+                `Article: ${p.name}\n` +
+                `Description: ${p.description}\n` +
+                `Taille: ${size}\n` +
+                `Quantité: ${quantity}\n` +
+                `Prix total: ${total} FCFA\n\n` +
+                `Merci de choisir On Black ! 😎\n` +
+                `Veuillez confirmer votre commande pour procéder.\n` +
+                `🛒 Plus de style vous attend sur ${websiteUrl}\n` +
+                `📩 Des questions ? Répondez ici !`;
             const phone = '237694103585';
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
