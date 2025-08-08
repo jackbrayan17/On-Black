@@ -1,156 +1,107 @@
 [
   {
     "id": "1",
-    "name": "Crest Arch Track Jacket",
-    "price": 130,
-    "description": "Stylish black track jacket with arch design.",
+    "name": "On Black Midnight Tee",
+    "price": 10000,
+    "description": "A classic black t-shirt with a subtle yet stylish logo on the chest. The 'On Black' brand is a nod to its deep, rich color. Made with a comfortable, cotton-like material, this tee is a versatile addition to any wardrobe. The back features a bold QR code and a statement of its Cameroonian origin.",
     "stock": 50,
     "color": "Black",
-    "sizes": ["S", "M", "L", "XL"],
-    "type": "Caps",
-    "image": "img/1.avif"
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "Tshirts",
+    "images": {
+      "front": "img/midnight_tee_front.avif",
+      "back": "img/midnight_tee_back.avif"
+    },
+    "attributes": "Cotton-like, classic fit, round neck, black color, white and black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner, 'ON BLACK ORIGINALS MADE IN CAMEROON' and a QR code on the back."
   },
   {
     "id": "2",
-    "name": "Crest Arch Track Pant",
-    "price": 120,
-    "description": "Comfortable black track pants with arch design.",
+    "name": "On Black Mocha Tee",
+    "price": 10000,
+    "description": "This t-shirt in a warm, rich mocha brown is perfect for a relaxed, earthy look. It features the same iconic 'On Black' logo in a contrasting white, adding a clean and modern touch. The cotton-like fabric ensures all-day comfort.",
     "stock": 50,
-    "color": "Black",
-    "sizes": ["S", "M", "L", "XL"],
-    "type": "Pants",
-    "image": "img/2.avif"
+    "color": "Brown",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "Tshirts",
+    "images": {
+      "front": "img/mocha_tee_front.avif",
+      "back": "img/mocha_tee_back.avif"
+    },
+    "attributes": "Cotton-like, classic fit, round neck, brown color, white logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
     "id": "3",
-    "name": "Paneled Rugby",
-    "price": 115,
-    "description": "Red paneled rugby shirt with number 18.",
-    "stock": 30,
-    "color": "Red",
-    "sizes": ["S", "M", "L", "XL"],
-    "type": "Tshirt",
-    "image": "img/3.avif"
+    "name": "On Black Rosewood Tee",
+    "price": 10000,
+    "description": "A vibrant and playful t-shirt in a cheerful rose pink. The white 'On Black' logo stands out against the bright background. The soft, cotton-like material makes this a comfortable and fashionable choice.",
+    "stock": 50,
+    "color": "Pink",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "Tshirts",
+    "images": {
+      "front": "img/rosewood_tee_front.avif",
+      "back": "img/rosewood_tee_back.avif"
+    },
+    "attributes": "Cotton-like, classic fit, round neck, pink color, white logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
     "id": "4",
-    "name": "SkyDive Leather Vest",
-    "price": 350,
-    "description": "Premium black leather vest.",
-    "stock": 20,
-    "color": "Black",
-    "sizes": ["S", "M", "L", "XL"],
-    "type": "TShirt",
-    "image": "img/4.avif"
-  },
-    {
-    "id": "5",
-    "name": "Core Logo Tee",
-    "price": 45,
-    "description": "Classic white tee with bold black logo.",
-    "stock": 60,
-    "color": "White",
-    "sizes": ["S", "M", "L", "XL"],
+    "name": "On Black Scarlet Tee",
+    "price": 10000,
+    "description": "This bold and striking scarlet red t-shirt is designed to make a statement. The black 'On Black' logo provides a sharp contrast, creating a dynamic and edgy look. The material is soft and breathable for everyday wear.",
+    "stock": 50,
+    "color": "Red",
+    "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "image": "img/5.avif"
+    "images": {
+      "front": "img/scarlet_tee_front.avif",
+      "back": "img/scarlet_tee_back.avif"
+    },
+    "attributes": "Cotton-like, classic fit, round neck, red color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
+  },
+  {
+    "id": "5",
+    "name": "On Black Sunset Tee",
+    "price": 10000,
+    "description": "Capture the warmth of a sunset with this vibrant orange t-shirt. The black 'On Black' logo adds a touch of cool sophistication to the bright color. This tee is perfect for adding a pop of color to your casual outfits.",
+    "stock": 50,
+    "color": "Orange",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "Tshirts",
+    "images": {
+      "front": "img/sunset_tee_front.avif",
+      "back": "img/sunset_tee_back.avif"
+    },
+    "attributes": "Cotton-like, classic fit, round neck, orange color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
     "id": "6",
-    "name": "Urban Flame Tee",
-    "price": 50,
-    "description": "Black t-shirt with fire print on chest.",
-    "stock": 40,
-    "color": "Black",
-    "sizes": ["S", "M", "L", "XL"],
+    "name": "On Black Ivory Tee",
+    "price": 10000,
+    "description": "A clean, crisp white t-shirt that serves as a timeless staple. The black 'On Black' logo creates a simple yet powerful aesthetic. Made from a soft, cotton-like fabric, this shirt is a versatile piece that can be dressed up or down.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "image": "img/6.avif"
+    "images": {
+      "front": "img/ivory_tee_front.avif",
+      "back": "img/ivory_tee_back.avif"
+    },
+    "attributes": "Cotton-like, classic fit, round neck, white/ivory color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
     "id": "7",
-    "name": "Oversized Graffiti Tee",
-    "price": 55,
-    "description": "White oversized tee with graffiti-inspired graphics.",
-    "stock": 35,
-    "color": "White",
-    "sizes": ["M", "L", "XL"],
-    "type": "Tshirts",
-    "image": "img/7.avif"
-  },
-  {
-    "id": "8",
-    "name": "Retro Stripe Tee",
-    "price": 48,
-    "description": "Striped t-shirt with vintage aesthetic.",
-    "stock": 45,
-    "color": "Multicolor",
-    "sizes": ["S", "M", "L"],
-    "type": "Tshirts",
-    "image": "img/8.avif"
-  },
-  {
-    "id": "9",
-    "name": "Minimalist Pocket Tee",
-    "price": 42,
-    "description": "Simple tee with a front pocket in neutral tones.",
+    "name": "On Black Ocean Tee",
+    "price": 10000,
+    "description": "Inspired by the clear waters of the ocean, this t-shirt in a refreshing blue/turquoise hue is both stylish and comfortable. The white 'On Black' logo adds a crisp and clean finish. This tee is a great way to add a calming, cool tone to your look.",
     "stock": 50,
-    "color": "Beige",
-    "sizes": ["S", "M", "L", "XL"],
-    "type": "Tshirts",
-    "image": "img/9.avif"
-  },
-  {
-    "id": "10",
-    "name": "Utility Cargo Pants",
-    "price": 95,
-    "description": "Military-style cargo pants with side pockets.",
-    "stock": 30,
-    "color": "Olive",
-    "sizes": ["M", "L", "XL"],
-    "type": "Pantalons",
-    "image": "img/10.avif"
-  },
-  {
-    "id": "11",
-    "name": "Black Slim Fit Pants",
-    "price": 85,
-    "description": "Slim fit black pants with elastic waist.",
-    "stock": 40,
-    "color": "Black",
-    "sizes": ["S", "M", "L", "XL"],
-    "type": "Pantalons",
-    "image": "img/11.avif"
-  },
-  {
-    "id": "12",
-    "name": "Street Jogger Pants",
-    "price": 78,
-    "description": "Comfortable jogger pants with zipper ankles.",
-    "stock": 50,
-    "color": "Grey",
-    "sizes": ["S", "M", "L", "XL"],
-    "type": "Pantalons",
-    "image": "img/12.avif"
-  },
-  {
-    "id": "13",
-    "name": "Vintage Denim Pants",
-    "price": 99,
-    "description": "Straight cut jeans with vintage wash.",
-    "stock": 25,
     "color": "Blue",
-    "sizes": ["M", "L", "XL"],
-    "type": "Pantalons",
-    "image": "img/13.avif"
-  },
-  {
-    "id": "14",
-    "name": "Distressed Track Pants",
-    "price": 88,
-    "description": "Black track pants with distressed seams.",
-    "stock": 20,
-    "color": "Black",
-    "sizes": ["S", "M", "L"],
-    "type": "Pantalons",
-    "image": "img/14.avif"
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "Tshirts",
+    "images": {
+      "front": "img/ocean_tee_front.avif",
+      "back": "img/ocean_tee_back.avif"
+    },
+    "attributes": "Cotton-like, classic fit, round neck, blue/turquoise color, white logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   }
 ]
