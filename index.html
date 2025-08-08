@@ -6,7 +6,6 @@
     <title>On Black - Boutique</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img/logo-removebg-preview.png" type="image/png" style="border-radius: 50%;">
-   
     <style>
         :root {
             --gold: #ffd700;
@@ -153,8 +152,8 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-            gap: clamp(1rem, 3vw, 1.5rem);
+            grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+            gap: clamp(0.5rem, 2vw, 1rem);
             padding: var(--padding-unit);
         }
 
@@ -163,7 +162,7 @@
             border-radius: 8px;
             overflow: hidden;
             text-align: center;
-            padding: 1rem;
+            padding: 0.5rem;
             transition: transform 0.2s;
             cursor: pointer;
         }
@@ -175,7 +174,7 @@
         .product-image-container {
             position: relative;
             width: 100%;
-            height: clamp(200px, 50vw, 250px);
+            height: clamp(150px, 40vw, 200px);
         }
 
         .product-image-front, .product-image-back {
@@ -202,26 +201,26 @@
         }
 
         .product p.name {
-            margin: 0.5rem 0;
+            margin: 0.3rem 0;
             font-weight: bold;
-            font-size: clamp(1rem, 4vw, 1.1rem);
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
         .product p.price {
             color: var(--gold);
-            font-size: clamp(0.9rem, 3.5vw, 1rem);
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
         }
 
         .product button {
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
             background-color: var(--gold);
             color: var(--black);
             border: none;
             border-radius: 4px;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             cursor: pointer;
             font-weight: bold;
-            font-size: clamp(0.8rem, 3vw, 0.9rem);
+            font-size: clamp(0.7rem, 2.5vw, 0.8rem);
             width: 100%;
             transition: background-color 0.3s;
         }
@@ -532,7 +531,7 @@
         @media (max-width: 480px) {
             :root {
                 --font-size-base: 14px;
-                --padding-unit: 0.75rem;
+                --padding-unit: 0.5rem;
             }
 
             header {
@@ -540,8 +539,30 @@
             }
 
             .product-grid {
-                grid-template-columns: 1fr;
-                gap: 0.75rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+
+            .product {
+                padding: 0.5rem;
+            }
+
+            .product-image-container {
+                height: clamp(120px, 35vw, 150px);
+            }
+
+            .product p.name {
+                font-size: clamp(0.8rem, 3vw, 0.9rem);
+            }
+
+            .product p.price {
+                font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+            }
+
+            .product button {
+                padding: 0.3rem 0.6rem;
+                font-size: clamp(0.6rem, 2vw, 0.7rem);
             }
 
             .modal-content, .cart-content {
@@ -955,4 +976,3 @@
     </script>
 </body>
 </html>
-
