@@ -165,6 +165,7 @@
             padding: 0.5rem;
             transition: transform 0.2s;
             cursor: pointer;
+            position: relative;
         }
 
         .product:hover {
@@ -198,6 +199,13 @@
 
         .product-image-container:hover .product-image-back {
             opacity: 1;
+        }
+
+        .product-checkbox {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            cursor: pointer;
         }
 
         .product p.name {
@@ -528,6 +536,31 @@
             font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
+        .modal-content .product-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .modal-content .product-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .modal-content .main-image-container {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-content .thumbnail-container {
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-content .quantity-control {
+            margin: 0.5rem 0;
+        }
+
         @media (max-width: 480px) {
             :root {
                 --font-size-base: 14px;
@@ -568,6 +601,10 @@
             .modal-content, .cart-content {
                 width: 95vw;
                 padding: 0.75rem;
+            }
+
+            .modal-content .product-item {
+                padding-bottom: 1rem;
             }
 
             .footer-content {
@@ -614,47 +651,6 @@
 
             .modal-content, .cart-content {
                 max-width: 600px;
-            }
-        }
-        .product {
-            position: relative;
-        }
-
-        .product-checkbox {
-            position: absolute;
-            top: 0.5rem;
-            left: 0.5rem;
-            cursor: pointer;
-        }
-
-        .modal-content .product-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #333;
-        }
-
-        .modal-content .product-item:last-child {
-            margin-bottom: 0;
-            border-bottom: none;
-        }
-
-        .modal-content .main-image-container {
-            width: 100%;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-content .thumbnail-container {
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-content .quantity-control {
-            margin: 0.5rem 0;
-        }
-
-        @media (max-width: 480px) {
-            .modal-content .product-item {
-                padding-bottom: 1rem;
             }
         }
     </style>
@@ -784,10 +780,14 @@
                     } else {
                         selectedProducts = selectedProducts.filter(p => p.id !== id);
                     }
+                    if (selectedProducts.length > 0) {
+                        showProductModal(selectedProducts.map(p => p.id));
+                    } else {
+                        document.getElementById('product-modal').style.display = 'none';
+                    }
                 });
                 productCard.querySelector('.btn-cart').addEventListener('click', (e) => {
                     e.stopPropagation();
-                    selectedProduct = product;
                     showProductModal([product.id]);
                 });
                 productCard.addEventListener('click', () => showProductModal([product.id]));
@@ -843,6 +843,8 @@
             updateCartCount();
             document.getElementById('product-modal').style.display = 'none';
             toggleCart();
+            selectedProducts = []; // Clear selection after adding to cart
+            displayProducts(allProducts); // Refresh to uncheck checkboxes
         }
 
         function updateCartCount() {
@@ -1007,3 +1009,4 @@
         }
     </script>
 </body>
+</html>
