@@ -8,10 +8,12 @@
     "color": "Black",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "images": {
-      "front": "img/devant t-shirt noir.png",
-      "back": "img/derriere t-shirt noir.png"
-    },
+    "images": [
+      "img/devant t-shirt noir.png",
+      "img/derriere t-shirt noir.png",
+      "img/black-tee-3.jpg",
+      "img/black-tee-hang.jpg"
+    ],
     "attributes": "Cotton-like, classic fit, round neck, black color, white and black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner, 'ON BLACK ORIGINALS MADE IN CAMEROON' and a QR code on the back."
   },
   {
@@ -23,10 +25,11 @@
     "color": "Brown",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "images": {
-      "front": "img/devant t-shirt marron.png",
-      "back": "img/derriere t-shirt marron.png"
-    },
+    "images": [
+      "img/devant t-shirt marron.png",
+      "img/derriere t-shirt marron.png",
+   
+    ],
     "attributes": "Cotton-like, classic fit, round neck, brown color, white logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
@@ -38,10 +41,11 @@
     "color": "Pink",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "images": {
-      "front": "img/devant t-shirt rose.jpg",
-      "back": "img/devant t-shirt rose.jpg"
-    },
+    "images": [
+      "img/devant t-shirt rose.jpg",
+      "img/derriere t-shirt rose.jpg",
+
+    ],
     "attributes": "Cotton-like, classic fit, round neck, pink color, white logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
@@ -53,10 +57,11 @@
     "color": "Red",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "images": {
-      "front": "img/devant t-shirt rouge.png",
-      "back": "img/derriere t-shirt rouge.png"
-    },
+    "images": [
+      "img/devant t-shirt rouge.png",
+      "img/derriere t-shirt rouge.png",
+  
+    ],
     "attributes": "Cotton-like, classic fit, round neck, red color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
@@ -68,10 +73,11 @@
     "color": "Orange",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "images": {
-      "front": "img/devant t-shirt orange.png",
-      "back": "img/derriere t-shirt orange.jpg"
-    },
+    "images": [
+      "img/devant t-shirt orange.png",
+      "img/derriere t-shirt orange.jpg",
+   
+    ],
     "attributes": "Cotton-like, classic fit, round neck, orange color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
@@ -83,10 +89,12 @@
     "color": "White",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "images": {
-      "front": "img/devant t-shirt blanc.png",
-      "back": "img/derriere t-shirt blanc.jpg"
-    },
+    "images": [
+      "img/devant t-shirt blanc.png",
+      "img/derriere t-shirt blanc.jpg",
+      "img/white-tee-4.jpg",
+  
+    ],
     "attributes": "Cotton-like, classic fit, round neck, white/ivory color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
@@ -98,10 +106,11 @@
     "color": "Blue",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "images": {
-      "front": "img/devant t-shirt bleu.png",
-      "back": "img/derriere t-shirt bleu.png"
-    },
+    "images": [
+      "img/devant t-shirt bleu.png",
+      "img/derriere t-shirt bleu.png",
+
+    ],
     "attributes": "Cotton-like, classic fit, round neck, blue/turquoise color, white logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   },
   {
@@ -113,10 +122,11 @@
     "color": "Black",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "TankTops",
-    "images": {
-      "front": "img/demem-noir.jpg",
-      "back": "img/demem-noir-dual.jpg"
-    },
+    "images": [
+      "img/demem-noir.jpg",
+      "img/demem-noir-dual.jpg",
+
+    ],
     "attributes": "Tank top, classic fit, round neck, black color, 'On Black' text logo on the chest."
   },
   {
@@ -128,10 +138,11 @@
     "color": "Grey",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "TankTops",
-    "images": {
-      "front": "img/demem-gris.jpg",
-      "back": "img/demem-gris-dual.jpg"
-    },
+    "images": [
+      "img/demem-gris.jpg",
+      "img/demem-gris-dual.jpg",
+
+    ],
     "attributes": "Tank top, classic fit, round neck, grey color, 'On Black' text logo on the chest."
   },
   {
@@ -143,10 +154,12 @@
     "color": "White",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "TankTops",
-    "images": {
-      "front": "img/demem-blanc.jpg",
-      "back": "img/demem-blanc-dual.jpg"
-    },
+    "images": [
+      "img/demem-blanc.jpg",
+      "img/demem-blanc-dual.jpg",
+      "img/demem-white-hang.jpg",
+    
+    ],
     "attributes": "Tank top, classic fit, round neck, white color, 'On Black' text logo on the chest."
   },
   {
@@ -158,10 +171,11 @@
     "color": "Black",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "TankTops",
-    "images": {
-      "front": "img/demem-noir.jpg",
-      "back": "img/demem-noir-dual.jpg"
-    },
+    "images": [
+      "img/demem-noir.jpg",
+      "img/demem-noir-dual.jpg",
+     
+    ],
     "attributes": "Tank top, classic fit, round neck, black color, white 'On Black' graphic logo on the chest."
   },
   {
@@ -173,10 +187,11 @@
     "color": "Grey",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "TankTops",
-    "images": {
-      "front": "img/demem-gris.jpg",
-      "back": "img/demem-gris-dual.jpg"
-    },
+    "images": [
+      "img/demem-gris.jpg",
+      "img/demem-gris-dual.jpg",
+   
+    ],
     "attributes": "Tank top, classic fit, round neck, grey color, white 'On Black' graphic logo on the chest."
   },
   {
@@ -188,10 +203,10 @@
     "color": "Burgundy",
     "sizes": ["OneSize"],
     "type": "Caps",
-    "images": {
-      "front": "img/redwine-cap.jpg",
-      "back": "img/redwine-cap.jpg"
-    },
+    "images": [
+      "img/redwine-cap.jpg",
+    
+    ],
     "attributes": "Trucker style cap, mesh back, burgundy front panel, white mesh, white 'On Black' logo on the front."
   },
   {
@@ -203,10 +218,10 @@
     "color": "Orange",
     "sizes": ["OneSize"],
     "type": "Caps",
-    "images": {
-      "front": "img/orange cap.jpg",
-      "back": "img/orange cap.jpg"
-    },
+    "images": [
+      "img/orange cap.jpg",
+
+    ],
     "attributes": "Trucker style cap, mesh back, bright orange front panel, white mesh, white 'On Black' logo on the front."
   },
   {
@@ -218,10 +233,10 @@
     "color": "Blue",
     "sizes": ["OneSize"],
     "type": "Caps",
-    "images": {
-      "front": "img/blue-cap.jpg",
-      "back": "img/blue-cap.jpg"
-    },
+    "images": [
+      "img/blue-cap.jpg",
+    
+    ],
     "attributes": "Trucker style cap, mesh back, royal blue front panel, white mesh, white 'On Black' logo on the front."
   },
   {
@@ -233,10 +248,10 @@
     "color": "Green",
     "sizes": ["OneSize"],
     "type": "Caps",
-    "images": {
-      "front": "img/green-cap.jpg",
-      "back": "img/green-cap.jpg"
-    },
+    "images": [
+      "img/green-cap.jpg",
+
+    ],
     "attributes": "Trucker style cap, mesh back, dark green front panel, white mesh, white 'On Black' logo on the front."
   },
   {
@@ -248,10 +263,11 @@
     "color": "White",
     "sizes": ["OneSize"],
     "type": "Caps",
-    "images": {
-      "front": "img/whitecap.jpg",
-      "back": "img/whitecap.jpg"
-    },
+    "images": [
+      "img/whitecap.jpg",
+  
+     
+    ],
     "attributes": "All-white cap, trucker style cap, mesh back, white front panel and mesh, black 'On Black' logo on the front."
   }
 ]
