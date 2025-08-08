@@ -103,5 +103,155 @@
       "back": "img/derriere t-shirt bleu.png"
     },
     "attributes": "Cotton-like, classic fit, round neck, blue/turquoise color, white logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
+  },
+  {
+    "id": "8",
+    "name": "On Black Midnight Tank",
+    "price": 5000,
+    "description": "A sleek and simple black tank top, perfect for a minimalist look. The classic fit and comfortable fabric make it an ideal choice for warm weather or as a layering piece. The subtle 'On Black' text logo is a stylish detail.",
+    "stock": 50,
+    "color": "Black",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "TankTops",
+    "images": {
+      "front": "img/demem-noir.jpg",
+      "back": "img/demem-noir-dual.jpg"
+    },
+    "attributes": "Tank top, classic fit, round neck, black color, 'On Black' text logo on the chest."
+  },
+  {
+    "id": "9",
+    "name": "On Black Charcoal Tank",
+    "price": 5000,
+    "description": "This heather grey tank top offers a versatile and modern aesthetic. The soft, breathable material is perfect for active days, while the 'On Black' text logo adds a touch of brand recognition.",
+    "stock": 50,
+    "color": "Grey",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "TankTops",
+    "images": {
+      "front": "img/demem-gris.jpg",
+      "back": "img/demem-gris-dual.jpg"
+    },
+    "attributes": "Tank top, classic fit, round neck, grey color, 'On Black' text logo on the chest."
+  },
+  {
+    "id": "10",
+    "name": "On Black Ivory Tank",
+    "price": 5000,
+    "description": "A crisp and clean white tank top, an essential piece for any wardrobe. The simple 'On Black' text logo is a classic touch. The lightweight fabric ensures comfort and style for any casual occasion.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "TankTops",
+    "images": {
+      "front": "img/demem-blanc.jpg",
+      "back": "img/demem-blanc-dual.jpg"
+    },
+    "attributes": "Tank top, classic fit, round neck, white color, 'On Black' text logo on the chest."
+  },
+  {
+    "id": "11",
+    "name": "On Black Onyx Icon Tank",
+    "price": 5000,
+    "description": "This black tank top features a bold white 'On Black' graphic logo, giving it a more modern and edgy feel. The comfortable material and classic fit make it a great choice for both casual wear and workouts.",
+    "stock": 50,
+    "color": "Black",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "TankTops",
+    "images": {
+      "front": "img/demem-noir.jpg",
+      "back": "img/demem-noir-dual.jpg"
+    },
+    "attributes": "Tank top, classic fit, round neck, black color, white 'On Black' graphic logo on the chest."
+  },
+  {
+    "id": "12",
+    "name": "On Black Granite Icon Tank",
+    "price": 5000,
+    "description": "A stylish heather grey tank top with the distinctive 'On Black' graphic logo in white. The contrasting colors create a clean and contemporary look. The breathable fabric is perfect for staying cool and comfortable.",
+    "stock": 50,
+    "color": "Grey",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "TankTops",
+    "images": {
+      "front": "img/demem-gris.jpg",
+      "back": "img/demem-gris-dual.jpg"
+    },
+    "attributes": "Tank top, classic fit, round neck, grey color, white 'On Black' graphic logo on the chest."
+  },
+  {
+    "id": "13",
+    "name": "On Black Burgundy Trucker Cap",
+    "price": 5000,
+    "description": "This classic trucker cap features a deep burgundy front panel and a breathable white mesh back, making it a stylish and comfortable accessory for any casual outfit. The white 'On Black' logo is embroidered on the front, adding a touch of brand identity.",
+    "stock": 50,
+    "color": "Burgundy",
+    "sizes": ["OneSize"],
+    "type": "Caps",
+    "images": {
+      "front": "img/redwine-cap.jpg",
+      "back": "img/redwine-cap.jpg"
+    },
+    "attributes": "Trucker style cap, mesh back, burgundy front panel, white mesh, white 'On Black' logo on the front."
+  },
+  {
+    "id": "14",
+    "name": "On Black Sunset Trucker Cap",
+    "price": 5000,
+    "description": "A vibrant orange cap that evokes the feeling of a warm, sunny day. The bright color is complemented by a white mesh back for ventilation and a clean white 'On Black' logo. This cap is perfect for adding a bold pop of color to your look.",
+    "stock": 50,
+    "color": "Orange",
+    "sizes": ["OneSize"],
+    "type": "Caps",
+    "images": {
+      "front": "img/orange cap.jpg",
+      "back": "img/orange cap.jpg"
+    },
+    "attributes": "Trucker style cap, mesh back, bright orange front panel, white mesh, white 'On Black' logo on the front."
+  },
+  {
+    "id": "15",
+    "name": "On Black Royal Blue Trucker Cap",
+    "price": 5000,
+    "description": "This cap features a striking royal blue front panel and a crisp white mesh back, offering a fresh and clean aesthetic. The white 'On Black' logo stands out, making this a great choice for a classic, sporty style.",
+    "stock": 50,
+    "color": "Blue",
+    "sizes": ["OneSize"],
+    "type": "Caps",
+    "images": {
+      "front": "img/blue-cap.jpg",
+      "back": "img/blue-cap.jpg"
+    },
+    "attributes": "Trucker style cap, mesh back, royal blue front panel, white mesh, white 'On Black' logo on the front."
+  },
+  {
+    "id": "16",
+    "name": "On Black Forest Green Trucker Cap",
+    "price": 5000,
+    "description": "A sophisticated dark green cap with a clean white mesh back. This cap offers a more understated and earthy tone while still maintaining a sharp look. The white 'On Black' logo provides a nice contrast against the deep green color.",
+    "stock": 50,
+    "color": "Green",
+    "sizes": ["OneSize"],
+    "type": "Caps",
+    "images": {
+      "front": "img/green-cap.jpg",
+      "back": "img/green-cap.jpg"
+    },
+    "attributes": "Trucker style cap, mesh back, dark green front panel, white mesh, white 'On Black' logo on the front."
+  },
+  {
+    "id": "17",
+    "name": "On Black Cloud White Trucker Cap",
+    "price": 5000,
+    "description": "This monochrome white cap is a versatile and timeless accessory. The entire cap is a clean white, with the 'On Black' logo embroidered in a contrasting black for a bold and modern finish. It's an essential piece for a minimalist or street-style look.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["OneSize"],
+    "type": "Caps",
+    "images": {
+      "front": "img/whitecap.jpg",
+      "back": "img/whitecap.jpg"
+    },
+    "attributes": "All-white cap, trucker style cap, mesh back, white front panel and mesh, black 'On Black' logo on the front."
   }
 ]
