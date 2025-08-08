@@ -754,301 +754,305 @@
     </footer>
 
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let selectedProducts = [];
-        let allProducts = [];
-        const websiteUrl = 'https://onblack.com';
-        const phoneNumber = '237694103585';
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let selectedProducts = [];
+let allProducts = [];
+const websiteUrl = 'https://onblack.com';
+const phoneNumber = '237694103585';
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateCartCount();
-            loadProducts();
-            const cartIcon = document.getElementById('cart-icon');
-            if (cartIcon) {
-                cartIcon.addEventListener('click', () => toggleCart());
-            } else {
-                console.error('Cart icon not found');
-            }
-            document.getElementById('menu-icon').addEventListener('click', toggleMenu);
-            document.getElementById('search-input').addEventListener('input', searchProducts);
-            document.getElementById('product-modal').addEventListener('click', (e) => {
-                if (e.target.classList.contains('modal')) {
-                    document.getElementById('product-modal').style.display = 'none';
-                }
-            });
-            document.getElementById('cart-modal').addEventListener('click', (e) => {
-                if (e.target.classList.contains('cart-modal')) {
-                    document.getElementById('cart-modal').style.display = 'none';
-                }
-            });
-        });
-
-        async function loadProducts() {
-            const grid = document.getElementById('product-grid');
-            try {
-                const response = await fetch('produits.json');
-                if (!response.ok) throw new Error('Échec du chargement des produits');
-                allProducts = await response.json();
-                const shuffledProducts = allProducts.sort(() => Math.random() - 0.5);
-                displayProducts(shuffledProducts);
-                setupFilters(allProducts);
-            } catch (error) {
-                console.error('Error loading products:', error);
-                grid.innerHTML = `<p class="error-message">Erreur: ${error.message}</p>`;
-            }
-        }
-
-        function displayProducts(products) {
-            const productGrid = document.getElementById('product-grid');
-            productGrid.innerHTML = '';
-            products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product';
-                productCard.innerHTML = `
-                    <input type="checkbox" class="product-checkbox" data-id="${product.id}">
-                    <div class="product-image-container">
-                        <img src="${product.images.front}" alt="${product.name}" class="product-image-front">
-                        <img src="${product.images.back}" alt="${product.name} back" class="product-image-back">
-                    </div>
-                    <p class="name">${product.name}</p>
-                    <p class="price">${product.price.toLocaleString()} FCFA</p>
-                    <button class="btn-cart">Ajouter au panier</button>
-                `;
-                productCard.querySelector('.product-checkbox').addEventListener('change', (e) => {
-                    const id = parseInt(e.target.dataset.id);
-                    if (e.target.checked) {
-                        selectedProducts.push(allProducts.find(p => p.id === id));
-                    } else {
-                        selectedProducts = selectedProducts.filter(p => p.id !== id);
-                    }
-                    if (selectedProducts.length > 0) {
-                        showProductModal(selectedProducts.map(p => p.id));
-                    } else {
-                        document.getElementById('product-modal').style.display = 'none';
-                    }
-                });
-                productCard.querySelector('.btn-cart').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    selectedProduct = product;
-                    showProductModal([product.id]);
-                });
-                productCard.addEventListener('click', () => showProductModal([product.id]));
-                productGrid.appendChild(productCard);
-            });
-        }
-
-        function setupFilters(products) {
-            const filterButtons = document.querySelectorAll('.category-btn');
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => {
-                        btn.style.backgroundColor = '#222';
-                        btn.style.color = 'var(--gold)';
-                    });
-                    button.style.backgroundColor = 'var(--gold)';
-                    button.style.color = 'var(--black)';
-                    const type = button.getAttribute('data-type');
-                    const filteredProducts = type === 'Tous' ? products.sort(() => Math.random() - 0.5) : products.filter(p => p.type === type).sort(() => Math.random() - 0.5);
-                    displayProducts(filteredProducts);
-                    if (window.innerWidth <= 768) {
-                        document.getElementById('category-nav').classList.remove('active');
-                    }
-                });
-            });
-        }
-
-        function searchProducts() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const filteredProducts = allProducts.filter(product => 
-                product.name.toLowerCase().includes(query) || 
-                product.description.toLowerCase().includes(query)
-            ).sort(() => Math.random() - 0.5);
-            displayProducts(filteredProducts);
-        }
-
-        function toggleMenu() {
-            document.getElementById('category-nav').classList.toggle('active');
-        }
-
-        function addToCart(ids, quantities, sizes) {
-            ids.forEach((id, index) => {
-                const product = allProducts.find(p => p.id === id);
-                if (!product) return;
-                const existingItem = cart.find(item => item.id === id && item.size === sizes[index]);
-                if (existingItem) {
-                    existingItem.quantity += quantities[index];
-                } else {
-                    cart.push({ ...product, quantity: quantities[index], size: sizes[index] });
-                }
-            });
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+    loadProducts();
+    const cartIcon = document.getElementById('cart-icon');
+    if (cartIcon) {
+        cartIcon.addEventListener('click', () => toggleCart());
+    } else {
+        console.error('Cart icon not found');
+    }
+    document.getElementById('menu-icon').addEventListener('click', toggleMenu);
+    document.getElementById('search-input').addEventListener('input', searchProducts);
+    document.getElementById('product-modal').addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
             document.getElementById('product-modal').style.display = 'none';
-            toggleCart();
-            selectedProducts = []; // Clear selection after adding to cart
-            displayProducts(allProducts); // Refresh to uncheck checkboxes
         }
-
-        function updateCartCount() {
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-count').textContent = count;
+    });
+    document.getElementById('cart-modal').addEventListener('click', (e) => {
+        if (e.target.classList.contains('cart-modal')) {
+            document.getElementById('cart-modal').style.display = 'none';
         }
+    });
+});
 
-        function toggleCart() {
-            const cartModal = document.getElementById('cart-modal');
-            const cartItems = document.getElementById('cart-items');
-            if (!cartModal || !cartItems) {
-                console.error('Cart modal or items container not found');
-                return;
-            }
-            cartModal.style.display = 'flex';
-            if (cart.length === 0) {
-                cartItems.innerHTML = `
-                    <p style="text-align: center; margin: 1rem 0;">Aucun produit ajouté. Continuez vos achats !</p>
-                    <button class="btn-continue-shopping" onclick="document.getElementById('cart-modal').style.display='none'">Continuer les achats</button>
-                `;
-                document.getElementById('cart-total').innerHTML = '';
-                document.getElementById('whatsapp-cart-order').style.display = 'none';
+async function loadProducts() {
+    const grid = document.getElementById('product-grid');
+    try {
+        const response = await fetch('produits.json');
+        if (!response.ok) throw new Error('Échec du chargement des produits');
+        const text = await response.text();
+        // Parse JSON, removing trailing commas if necessary (lenient parsing)
+        allProducts = JSON.parse(text.replace(/,\s*]/g, ']').replace(/,\s*}/g, '}'));
+        const shuffledProducts = allProducts.sort(() => Math.random() - 0.5);
+        displayProducts(shuffledProducts);
+        setupFilters(allProducts);
+    } catch (error) {
+        console.error('Error loading products:', error);
+        grid.innerHTML = `<p class="error-message">Erreur: ${error.message}</p>`;
+    }
+}
+
+function displayProducts(products) {
+    const productGrid = document.getElementById('product-grid');
+    productGrid.innerHTML = '';
+    products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product';
+        // Use the first two images from the images array (front and back)
+        const frontImage = product.images[0] || 'img/placeholder.png'; // Fallback image if none exists
+        const backImage = product.images[1] || frontImage; // Use front image if back image doesn't exist
+        productCard.innerHTML = `
+            <input type="checkbox" class="product-checkbox" data-id="${product.id}">
+            <div class="product-image-container">
+                <img src="${frontImage}" alt="${product.name}" class="product-image-front">
+                <img src="${backImage}" alt="${product.name} back" class="product-image-back">
+            </div>
+            <p class="name">${product.name}</p>
+            <p class="price">${product.price.toLocaleString()} FCFA</p>
+            <button class="btn-cart">Ajouter au panier</button>
+        `;
+        productCard.querySelector('.product-checkbox').addEventListener('change', (e) => {
+            const id = e.target.dataset.id;
+            if (e.target.checked) {
+                selectedProducts.push(allProducts.find(p => p.id === id));
             } else {
-                cartItems.innerHTML = cart.map((p, i) => `
-                    <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #333;">
-                        <p>${p.name} (${p.size}) - ${p.price.toLocaleString()} FCFA</p>
-                        <div class="quantity-control">
-                            <button onclick="changeQty(${i}, -1)">-</button>
-                            <span>${p.quantity}</span>
-                            <button onclick="changeQty(${i}, 1)">+</button>
-                            <button onclick="removeFromCart(${i})" style="background-color: #ff4444; margin-left: 10px;">Supprimer</button>
-                        </div>
-                    </div>
-                `).join('');
-                document.getElementById('cart-total').innerHTML = `Total: ${cart.reduce((sum, p) => sum + p.price * p.quantity, 0).toLocaleString()} FCFA`;
-                document.getElementById('whatsapp-cart-order').style.display = 'block';
+                selectedProducts = selectedProducts.filter(p => p.id !== id);
             }
-            document.getElementById('close-cart').addEventListener('click', () => {
-                cartModal.style.display = 'none';
-            }, { once: true });
-            document.getElementById('whatsapp-cart-order').addEventListener('click', whatsAppOrder, { once: true });
-        }
-
-        function changeQty(index, delta) {
-            cart[index].quantity += delta;
-            if (cart[index].quantity < 1) {
-                removeFromCart(index);
-                return;
+            if (selectedProducts.length > 0) {
+                showProductModal(selectedProducts.map(p => p.id));
+            } else {
+                document.getElementById('product-modal').style.display = 'none';
             }
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            toggleCart();
-        }
+        });
+        productCard.querySelector('.btn-cart').addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedProduct = product;
+            showProductModal([product.id]);
+        });
+        productCard.addEventListener('click', () => showProductModal([product.id]));
+        productGrid.appendChild(productCard);
+    });
+}
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            toggleCart();
-        }
+function setupFilters(products) {
+    const filterButtons = document.querySelectorAll('.category-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => {
+                btn.style.backgroundColor = '#222';
+                btn.style.color = 'var(--gold)';
+            });
+            button.style.backgroundColor = 'var(--gold)';
+            button.style.color = 'var(--black)';
+            const type = button.getAttribute('data-type');
+            const filteredProducts = type === 'Tous' ? products.sort(() => Math.random() - 0.5) : products.filter(p => p.type === type).sort(() => Math.random() - 0.5);
+            displayProducts(filteredProducts);
+            if (window.innerWidth <= 768) {
+                document.getElementById('category-nav').classList.remove('active');
+            }
+        });
+    });
+}
 
-        function whatsAppOrder() {
-            if (cart.length === 0) return;
-            const total = cart.reduce((sum, p) => sum + p.price * p.quantity, 0);
-            const message = `🌟 *On Black - Votre Commande* 🌟\n\n` +
-                `📋 *Récapitulatif de votre commande :*\n` +
-                cart.map((p, i) => 
-                    `${i + 1}. ${p.name}\n` +
-                    `   Taille: ${p.size}\n` +
-                    `   Quantité: ${p.quantity}\n` +
-                    `   Prix: ${p.price * p.quantity} FCFA`
-                ).join('\n\n') +
-                `\n💰 *Total*: ${total.toLocaleString()} FCFA\n\n` +
-                `Merci de faire vos achats chez On Black ! 😎\n` +
-                `Pour finaliser votre commande, veuillez confirmer les détails.\n` +
-                `🛒 Découvrez plus sur ${websiteUrl}\n` +
-                `📩 Répondez à ce message pour toute question !`;
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-        }
+function searchProducts() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const filteredProducts = allProducts.filter(product => 
+        product.name.toLowerCase().includes(query) || 
+        product.description.toLowerCase().includes(query)
+    ).sort(() => Math.random() - 0.5);
+    displayProducts(filteredProducts);
+}
 
-        function showProductModal(ids) {
-            const products = ids.map(id => allProducts.find(p => p.id === id)).filter(p => p);
-            if (products.length === 0) return;
-            const modal = document.getElementById('product-modal');
-            const productList = document.getElementById('modal-product-list');
-            productList.innerHTML = products.map(product => `
-                <div class="product-item">
-                    <h3>${product.name}</h3>
-                    <div class="main-image-container">
-                        <img id="modal-main-image-${product.id}" src="${product.images.front}" alt="Main product image" class="main-image">
-                    </div>
-                    <div class="thumbnail-container">
-                        <img id="modal-thumbnail-front-${product.id}" class="thumbnail" src="${product.images.front}" alt="Front thumbnail" onclick="changeImage(${product.id}, 'front')">
-                        <img id="modal-thumbnail-back-${product.id}" class="thumbnail" src="${product.images.back}" alt="Back thumbnail" onclick="changeImage(${product.id}, 'back')">
-                    </div>
-                    <p>${product.description}</p>
-                    <p class="price">${product.price.toLocaleString()} FCFA</p>
-                    <div class="quantity-control">
-                        <button onclick="changeModalQty(${product.id}, -1)">-</button>
-                        <span id="modal-quantity-${product.id}">1</span>
-                        <button onclick="changeModalQty(${product.id}, 1)">+</button>
-                    </div>
-                    <div class="mt-2">
-                        <label for="modal-size-${product.id}">Taille:</label>
-                        <select id="modal-size-${product.id}" class="w-full">
-                            ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
-                        </select>
-                    </div>
+function toggleMenu() {
+    document.getElementById('category-nav').classList.toggle('active');
+}
+
+function addToCart(ids, quantities, sizes) {
+    ids.forEach((id, index) => {
+        const product = allProducts.find(p => p.id === id);
+        if (!product) return;
+        const existingItem = cart.find(item => item.id === id && item.size === sizes[index]);
+        if (existingItem) {
+            existingItem.quantity += quantities[index];
+        } else {
+            cart.push({ ...product, quantity: quantities[index], size: sizes[index] });
+        }
+    });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    document.getElementById('product-modal').style.display = 'none';
+    toggleCart();
+    selectedProducts = []; // Clear selection after adding to cart
+    displayProducts(allProducts); // Refresh to uncheck checkboxes
+}
+
+function updateCartCount() {
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cart-count').textContent = count;
+}
+
+function toggleCart() {
+    const cartModal = document.getElementById('cart-modal');
+    const cartItems = document.getElementById('cart-items');
+    if (!cartModal || !cartItems) {
+        console.error('Cart modal or items container not found');
+        return;
+    }
+    cartModal.style.display = 'flex';
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <p style="text-align: center; margin: 1rem 0;">Aucun produit ajouté. Continuez vos achats !</p>
+            <button class="btn-continue-shopping" onclick="document.getElementById('cart-modal').style.display='none'">Continuer les achats</button>
+        `;
+        document.getElementById('cart-total').innerHTML = '';
+        document.getElementById('whatsapp-cart-order').style.display = 'none';
+    } else {
+        cartItems.innerHTML = cart.map((p, i) => `
+            <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #333;">
+                <p>${p.name} (${p.size}) - ${p.price.toLocaleString()} FCFA</p>
+                <div class="quantity-control">
+                    <button onclick="changeQty(${i}, -1)">-</button>
+                    <span>${p.quantity}</span>
+                    <button onclick="changeQty(${i}, 1)">+</button>
+                    <button onclick="removeFromCart(${i})" style="background-color: #ff4444; margin-left: 10px;">Supprimer</button>
                 </div>
-            `).join('');
-            modal.style.display = 'flex';
-            document.getElementById('close-modal').addEventListener('click', () => {
-                modal.style.display = 'none';
-            }, { once: true });
-            document.getElementById('add-to-cart').addEventListener('click', () => {
-                const quantities = products.map(p => parseInt(document.getElementById(`modal-quantity-${p.id}`).textContent));
-                const sizes = products.map(p => document.getElementById(`modal-size-${p.id}`).value);
-                addToCart(products.map(p => p.id), quantities, sizes);
-            }, { once: true });
-            document.getElementById('whatsapp-order').addEventListener('click', () => whatsAppSingleOrder(products), { once: true });
-        }
+            </div>
+        `).join('');
+        document.getElementById('cart-total').innerHTML = `Total: ${cart.reduce((sum, p) => sum + p.price * p.quantity, 0).toLocaleString()} FCFA`;
+        document.getElementById('whatsapp-cart-order').style.display = 'block';
+    }
+    document.getElementById('close-cart').addEventListener('click', () => {
+        cartModal.style.display = 'none';
+    }, { once: true });
+    document.getElementById('whatsapp-cart-order').addEventListener('click', whatsAppOrder, { once: true });
+}
 
-        function changeModalQty(id, delta) {
-            const qtySpan = document.getElementById(`modal-quantity-${id}`);
-            let qty = parseInt(qtySpan.textContent) + delta;
-            if (qty < 1) qty = 1;
-            qtySpan.textContent = qty;
-        }
+function changeQty(index, delta) {
+    cart[index].quantity += delta;
+    if (cart[index].quantity < 1) {
+        removeFromCart(index);
+        return;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    toggleCart();
+}
 
-        function changeImage(id, side) {
-            const mainImage = document.getElementById(`modal-main-image-${id}`);
-            const thumbnailFront = document.getElementById(`modal-thumbnail-front-${id}`);
-            const thumbnailBack = document.getElementById(`modal-thumbnail-back-${id}`);
-            const product = allProducts.find(p => p.id === id);
-            if (side === 'front') {
-                mainImage.src = product.images.front;
-                thumbnailFront.classList.add('active');
-                thumbnailBack.classList.remove('active');
-            } else {
-                mainImage.src = product.images.back;
-                thumbnailFront.classList.remove('active');
-                thumbnailBack.classList.add('active');
-            }
-        }
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    toggleCart();
+}
 
-        function whatsAppSingleOrder(products) {
-            const total = products.reduce((sum, p) => sum + p.price * parseInt(document.getElementById(`modal-quantity-${p.id}`).textContent), 0);
-            const message = `🌟 *On Black - Commande de Produits* 🌟\n\n` +
-                `📋 *Détails des produits :*\n` +
-                products.map((p, i) => 
-                    `${i + 1}. ${p.name}\n` +
-                    `   Taille: ${document.getElementById(`modal-size-${p.id}`).value}\n` +
-                    `   Quantité: ${document.getElementById(`modal-quantity-${p.id}`).textContent}\n` +
-                    `   Prix: ${p.price * parseInt(document.getElementById(`modal-quantity-${p.id}`).textContent)} FCFA`
-                ).join('\n\n') +
-                `\n💰 *Total*: ${total.toLocaleString()} FCFA\n\n` +
-                `Merci de choisir On Black ! 😎\n` +
-                `Veuillez confirmer votre commande pour procéder.\n` +
-                `🛒 Plus de style vous attend sur ${websiteUrl}\n` +
-                `📩 Des questions ? Répondez ici !`;
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+function whatsAppOrder() {
+    if (cart.length === 0) return;
+    const total = cart.reduce((sum, p) => sum + p.price * p.quantity, 0);
+    const message = `🌟 *On Black - Votre Commande* 🌟\n\n` +
+        `📋 *Récapitulatif de votre commande :*\n` +
+        cart.map((p, i) => 
+            `${i + 1}. ${p.name}\n` +
+            `   Taille: ${p.size}\n` +
+            `   Quantité: ${p.quantity}\n` +
+            `   Prix: ${p.price * p.quantity} FCFA`
+        ).join('\n\n') +
+        `\n💰 *Total*: ${total.toLocaleString()} FCFA\n\n` +
+        `Merci de faire vos achats chez On Black ! 😎\n` +
+        `Pour finaliser votre commande, veuillez confirmer les détails.\n` +
+        `🛒 Découvrez plus sur ${websiteUrl}\n` +
+        `📩 Répondez à ce message pour toute question !`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+function showProductModal(ids) {
+    const products = ids.map(id => allProducts.find(p => p.id === id)).filter(p => p);
+    if (products.length === 0) return;
+    const modal = document.getElementById('product-modal');
+    const productList = document.getElementById('modal-product-list');
+    productList.innerHTML = products.map(product => `
+        <div class="product-item">
+            <h3>${product.name}</h3>
+            <div class="main-image-container">
+                <img id="modal-main-image-${product.id}" src="${product.images[0] || 'img/placeholder.png'}" alt="Main product image" class="main-image">
+            </div>
+            <div class="thumbnail-container">
+                ${product.images.map((img, index) => `
+                    <img id="modal-thumbnail-${product.id}-${index}" class="thumbnail${index === 0 ? ' active' : ''}" src="${img}" alt="Thumbnail ${index + 1}" onclick="changeImage(${product.id}, ${index})">
+                `).join('')}
+            </div>
+            <p>${product.description}</p>
+            <p class="price">${product.price.toLocaleString()} FCFA</p>
+            <div class="quantity-control">
+                <button onclick="changeModalQty(${product.id}, -1)">-</button>
+                <span id="modal-quantity-${product.id}">1</span>
+                <button onclick="changeModalQty(${product.id}, 1)">+</button>
+            </div>
+            <div class="mt-2">
+                <label for="modal-size-${product.id}">Taille:</label>
+                <select id="modal-size-${product.id}" class="w-full">
+                    ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                </select>
+            </div>
+        </div>
+    `).join('');
+    modal.style.display = 'flex';
+    document.getElementById('close-modal').addEventListener('click', () => {
+        modal.style.display = 'none';
+    }, { once: true });
+    document.getElementById('add-to-cart').addEventListener('click', () => {
+        const quantities = products.map(p => parseInt(document.getElementById(`modal-quantity-${p.id}`).textContent));
+        const sizes = products.map(p => document.getElementById(`modal-size-${p.id}`).value);
+        addToCart(products.map(p => p.id), quantities, sizes);
+    }, { once: true });
+    document.getElementById('whatsapp-order').addEventListener('click', () => whatsAppSingleOrder(products), { once: true });
+}
+
+function changeModalQty(id, delta) {
+    const qtySpan = document.getElementById(`modal-quantity-${id}`);
+    let qty = parseInt(qtySpan.textContent) + delta;
+    if (qty < 1) qty = 1;
+    qtySpan.textContent = qty;
+}
+
+function changeImage(id, index) {
+    const mainImage = document.getElementById(`modal-main-image-${id}`);
+    const product = allProducts.find(p => p.id === id);
+    mainImage.src = product.images[index];
+    // Update active thumbnail
+    product.images.forEach((_, i) => {
+        const thumbnail = document.getElementById(`modal-thumbnail-${id}-${i}`);
+        if (thumbnail) {
+            thumbnail.classList.toggle('active', i === index);
         }
+    });
+}
+
+function whatsAppSingleOrder(products) {
+    const total = products.reduce((sum, p) => sum + p.price * parseInt(document.getElementById(`modal-quantity-${p.id}`).textContent), 0);
+    const message = `🌟 *On Black - Commande de Produits* 🌟\n\n` +
+        `📋 *Détails des produits :*\n` +
+        products.map((p, i) => 
+            `${i + 1}. ${p.name}\n` +
+            `   Taille: ${document.getElementById(`modal-size-${p.id}`).value}\n` +
+            `   Quantité: ${document.getElementById(`modal-quantity-${p.id}`).textContent}\n` +
+            `   Prix: ${p.price * parseInt(document.getElementById(`modal-quantity-${p.id}`).textContent)} FCFA`
+        ).join('\n\n') +
+        `\n💰 *Total*: ${total.toLocaleString()} FCFA\n\n` +
+        `Merci de choisir On Black ! 😎\n` +
+        `Veuillez confirmer votre commande pour procéder.\n` +
+        `🛒 Plus de style vous attend sur ${websiteUrl}\n` +
+        `📩 Des questions ? Répondez ici !`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+}
     </script>
 </body>
 </html>
+
