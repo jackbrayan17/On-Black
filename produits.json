@@ -279,10 +279,10 @@
     "color": "White",
     "sizes": ["XL", "XXL", "XXXL"],
     "type": "Tshirts",
-    "images": {
-      "front": "img/whitetee.jpg",
-      "back": "img/whitetee.jpg"
-    },
+    "images": [
+      "img/whitetee.jpg",
+      "img/whitetee.jpg"
+    ],
     "attributes": "Cotton-like, classic fit, round neck, white color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   }
 ]
