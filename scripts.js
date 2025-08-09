@@ -124,17 +124,19 @@ function showProductModal(ids) {
             <div class="product-item">
                 <h3>${product.name}</h3>
                 <div class="main-image-container">
-                    <img id="modal-main-image-${product.id}" src="${firstImage}" alt="${product.name}" class="main-image">
+                    <img id="modal-main-image-${product.id}" 
+                         src="${firstImage}" 
+                         alt="${product.name}" 
+                         class="main-image">
                 </div>
                 <div class="thumbnail-container">
                     ${product.images.map((img, idx) => `
                         <img 
-                            id="modal-thumbnail-${product.id}-${idx}"
-                            class="thumbnail ${idx === 0 ? 'active' : ''}"
-                            src="${img}"
-                            alt="${product.name} image ${idx + 1}"
-                            onclick="changeImage(${product.id}, ${idx})"
-                        >
+                            class="thumbnail ${idx === 0 ? 'active' : ''}" 
+                            src="${img}" 
+                            alt="${product.name} image ${idx + 1}" 
+                            data-product-id="${product.id}" 
+                            data-index="${idx}">
                     `).join('')}
                 </div>
                 <p>${product.description}</p>
@@ -143,10 +145,18 @@ function showProductModal(ids) {
         `;
     }).join('');
 
+    // Add click listeners for thumbnails
+    list.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.addEventListener('click', function () {
+            const productId = parseInt(this.dataset.productId);
+            const index = parseInt(this.dataset.index);
+            changeImage(productId, index);
+        });
+    });
+
     modal.style.display = 'flex';
     document.getElementById('close-modal').onclick = () => modal.style.display = 'none';
 }
-
 
 function changeImage(id, index) {
     const product = allProducts.find(p => p.id === id);
@@ -156,11 +166,12 @@ function changeImage(id, index) {
     mainImage.src = product.images[index] || placeholderImage;
     mainImage.alt = `${product.name} image ${index + 1}`;
 
-    document.querySelectorAll(`#modal-product-list .thumbnail[id^="modal-thumbnail-${id}-"]`)
+    document.querySelectorAll(`.thumbnail[data-product-id="${id}"]`)
         .forEach((thumb, i) => {
             thumb.classList.toggle('active', i === index);
         });
 }
+
 
 
 function handleThumbnailKeyboardNavigation(e) {
