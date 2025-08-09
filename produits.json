@@ -269,5 +269,20 @@
      
     ],
     "attributes": "All-white cap, trucker style cap, mesh back, white front panel and mesh, black 'On Black' logo on the front."
+  },
+  {
+    "id": "18",
+    "name": "On Black White Tee",
+    "price": 10000,
+    "description": "A clean, crisp white t-shirt with a black 'On Black' logo on the chest. The back also features a QR code and 'ON BLACK ORIGINALS MADE IN CAMEROON' text. It's made from a soft, cotton-like fabric.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["XL", "XXL", "XXXL"],
+    "type": "Tshirts",
+    "images": {
+      "front": "img/whitetee.jpg",
+      "back": "img/whitetee.jpg"
+    },
+    "attributes": "Cotton-like, classic fit, round neck, white color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   }
 ]
