@@ -111,37 +111,42 @@ function closeModal() {
 function closeCart() {
     document.getElementById('cart-modal').style.display = 'none';
 }
-
 function showProductModal(ids) {
     const products = ids.map(id => allProducts.find(p => p.id === id)).filter(Boolean);
+    if (!products.length) return;
+
     const modal = document.getElementById('product-modal');
     const list = document.getElementById('modal-product-list');
 
-    list.innerHTML = products.map(product => `
-        <div class="product-item">
-            <h3>${product.name}</h3>
-            <div class="main-image-container">
-                <img id="modal-main-image-${product.id}" src="${product.images[0] || placeholderImage}" alt="${product.name}" class="main-image">
+    list.innerHTML = products.map(product => {
+        const firstImage = product.images[0] || placeholderImage;
+        return `
+            <div class="product-item">
+                <h3>${product.name}</h3>
+                <div class="main-image-container">
+                    <img id="modal-main-image-${product.id}" src="${firstImage}" alt="${product.name}" class="main-image">
+                </div>
+                <div class="thumbnail-container">
+                    ${product.images.map((img, idx) => `
+                        <img 
+                            id="modal-thumbnail-${product.id}-${idx}"
+                            class="thumbnail ${idx === 0 ? 'active' : ''}"
+                            src="${img}"
+                            alt="${product.name} image ${idx + 1}"
+                            onclick="changeImage(${product.id}, ${idx})"
+                        >
+                    `).join('')}
+                </div>
+                <p>${product.description}</p>
+                <p class="price">${product.price.toLocaleString()} FCFA</p>
             </div>
-            <div class="thumbnail-container">
-                ${product.images.map((img, idx) => `
-                    <img 
-                        id="modal-thumbnail-${product.id}-${idx}"
-                        class="thumbnail ${idx === 0 ? 'active' : ''}"
-                        src="${img}"
-                        alt="${product.name} image ${idx + 1}"
-                        onclick="changeImage(${product.id}, ${idx})"
-                    >
-                `).join('')}
-            </div>
-            <p>${product.description}</p>
-            <p class="price">${product.price.toLocaleString()} FCFA</p>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
     modal.style.display = 'flex';
-    document.getElementById('close-modal').onclick = closeModal;
+    document.getElementById('close-modal').onclick = () => modal.style.display = 'none';
 }
+
 
 function changeImage(id, index) {
     const product = allProducts.find(p => p.id === id);
