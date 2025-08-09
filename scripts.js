@@ -129,7 +129,8 @@ function showProductModal(ids) {
                     <img id="modal-main-image-${product.id}" 
                          src="${firstImage}" 
                          alt="${product.name}" 
-                         class="main-image">
+                         class="main-image"
+                         data-product-id="${product.id}">
                 </div>
                 <div class="thumbnail-container">
                     ${product.images.map((img, idx) => `
@@ -148,7 +149,7 @@ function showProductModal(ids) {
         `;
     }).join('');
 
-    // Add click listeners for thumbnails
+    // Click on thumbnails
     list.querySelectorAll('.thumbnail').forEach(thumb => {
         thumb.addEventListener('click', function () {
             const productId = parseInt(this.dataset.productId);
@@ -157,16 +158,24 @@ function showProductModal(ids) {
         });
     });
 
-    // Start slideshow for each product
-    products.forEach(product => {
-        startSlideshow(product.id);
+    // Pause slideshow on hover over main image
+    list.querySelectorAll('.main-image').forEach(mainImg => {
+        const productId = parseInt(mainImg.dataset.productId);
+        mainImg.addEventListener('mouseenter', () => stopSlideshow(productId));
+        mainImg.addEventListener('mouseleave', () => {
+            const activeThumb = document.querySelector(`.thumbnail.active[data-product-id="${productId}"]`);
+            const startIndex = activeThumb ? parseInt(activeThumb.dataset.index) : 0;
+            startSlideshow(productId, startIndex);
+        });
     });
+
+    // Start slideshow
+    products.forEach(product => startSlideshow(product.id));
 
     modal.style.display = 'flex';
     document.getElementById('close-modal').onclick = closeModal;
 }
 
-// Change main image in modal
 function changeImage(id, index) {
     const product = allProducts.find(p => p.id === id);
     if (!product) return;
@@ -181,7 +190,7 @@ function changeImage(id, index) {
             thumb.classList.toggle('active', i === index);
         });
 
-    // Reset slideshow timer
+    // Restart slideshow from this image
     stopSlideshow(id);
     startSlideshow(id, index);
 }
