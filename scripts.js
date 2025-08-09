@@ -151,6 +151,7 @@ function showProductModal(ids) {
 function changeImage(id, index) {
     const product = allProducts.find(p => p.id === id);
     if (!product) return;
+
     const mainImage = document.getElementById(`modal-main-image-${id}`);
     mainImage.src = product.images[index] || placeholderImage;
     mainImage.alt = `${product.name} image ${index + 1}`;
@@ -160,6 +161,7 @@ function changeImage(id, index) {
             thumb.classList.toggle('active', i === index);
         });
 }
+
 
 function handleThumbnailKeyboardNavigation(e) {
     const el = document.activeElement;
