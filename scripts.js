@@ -1,6 +1,7 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let selectedProducts = [];
 let allProducts = [];
+let slideIntervals = {};
 const websiteUrl = 'https://on-black.vercel.app';
 const phoneNumber = '237694103585';
 const placeholderImage = 'img/logo.jpg';
@@ -111,6 +112,7 @@ function closeModal() {
 function closeCart() {
     document.getElementById('cart-modal').style.display = 'none';
 }
+// Show product modal
 function showProductModal(ids) {
     const products = ids.map(id => allProducts.find(p => p.id === id)).filter(Boolean);
     if (!products.length) return;
@@ -132,10 +134,11 @@ function showProductModal(ids) {
                 <div class="thumbnail-container">
                     ${product.images.map((img, idx) => `
                         <img 
-                            class="thumbnail ${idx === 0 ? 'active' : ''}" 
-                            src="${img}" 
-                            alt="${product.name} image ${idx + 1}" 
-                            data-product-id="${product.id}" 
+                            id="modal-thumbnail-${product.id}-${idx}"
+                            class="thumbnail ${idx === 0 ? 'active' : ''}"
+                            src="${img}"
+                            alt="${product.name} image ${idx + 1}"
+                            data-product-id="${product.id}"
                             data-index="${idx}">
                     `).join('')}
                 </div>
@@ -154,10 +157,16 @@ function showProductModal(ids) {
         });
     });
 
+    // Start slideshow for each product
+    products.forEach(product => {
+        startSlideshow(product.id);
+    });
+
     modal.style.display = 'flex';
-    document.getElementById('close-modal').onclick = () => modal.style.display = 'none';
+    document.getElementById('close-modal').onclick = closeModal;
 }
 
+// Change main image in modal
 function changeImage(id, index) {
     const product = allProducts.find(p => p.id === id);
     if (!product) return;
@@ -166,12 +175,38 @@ function changeImage(id, index) {
     mainImage.src = product.images[index] || placeholderImage;
     mainImage.alt = `${product.name} image ${index + 1}`;
 
+    // Update active thumbnail
     document.querySelectorAll(`.thumbnail[data-product-id="${id}"]`)
         .forEach((thumb, i) => {
             thumb.classList.toggle('active', i === index);
         });
+
+    // Reset slideshow timer
+    stopSlideshow(id);
+    startSlideshow(id, index);
 }
 
+// Start slideshow for modal images
+function startSlideshow(productId, startIndex = 0) {
+    stopSlideshow(productId); // Prevent duplicates
+
+    let product = allProducts.find(p => p.id === productId);
+    if (!product || product.images.length <= 1) return;
+
+    let currentIndex = startIndex;
+    slideIntervals[productId] = setInterval(() => {
+        currentIndex = (currentIndex + 1) % product.images.length;
+        changeImage(productId, currentIndex);
+    }, 5000); // 5 seconds
+}
+
+// Stop slideshow for a product
+function stopSlideshow(productId) {
+    if (slideIntervals[productId]) {
+        clearInterval(slideIntervals[productId]);
+        delete slideIntervals[productId];
+    }
+}
 
 
 function handleThumbnailKeyboardNavigation(e) {
