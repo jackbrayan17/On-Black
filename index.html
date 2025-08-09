@@ -7,89 +7,241 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img/logo-removebg-preview.png" type="image/png" style="border-radius: 50%;">
     <style>
-        :root {
-            --gold: #ffd700;
-            --black: #000;
-            --gray-dark: #222;
-            --light-gray: #333;
-            --font-main: 'Space Mono', monospace;
-            --padding-unit: 1rem;
-            --font-size-base: 16px;
-            --primary: #ffd700;
-            --accent-secondary: #ffd700;
-            --transition: all 0.3s ease;
-        }
+       /* === Variables & Reset === */
+:root {
+    --gold: #ffd700;
+    --black: #000;
+    --gray-dark: #222;
+    --light-gray: #333;
+    --font-main: 'Space Mono', monospace;
+    --padding-unit: 1rem;
+    --font-size-base: 16px;
+    --primary: #ffd700;
+    --accent-secondary: #ffd700;
+    --transition: all 0.3s ease;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: var(--font-main);
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
 
-        body {
-            font-family: var(--font-main);
-            background-color: var(--black);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            font-size: var(--font-size-base);
-            line-height: 1.5;
-            -webkit-tap-highlight-color: transparent;
-        }
+/* === Body === */
+body {
+    font-family: var(--font-main);
+    background-color: var(--black);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
+/* === Scrollbar === */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #e6c200;
+}
+* {
+    scrollbar-color: var(--gold) #111;
+    scrollbar-width: thin;
+}
 
-        ::-webkit-scrollbar-track {
-            background: #111;
-        }
+/* === Header === */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-unit);
+    background-color: var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+header img.logo {
+    width: clamp(80px, 15vw, 100px);
+    height: auto;
+    border-radius: 50%;
+    order: 2;
+    margin: 0 auto;
+}
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: clamp(1.2rem, 5vw, 1.4rem);
+    color: var(--gold);
+    padding: 0.5rem;
+    order: 1;
+}
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background-color: var(--gold);
+    color: var(--black);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: clamp(0.6rem, 2vw, 0.75rem);
+    font-weight: bold;
+}
+.menu-icon {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+    color: var(--gold);
+    cursor: pointer;
+    padding: 0.5rem;
+    order: 3;
+    display: none;
+}
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 4px;
-        }
+/* === Search Bar === */
+.search-container {
+    margin: var(--padding-unit);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+.search-container input {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    background-color: #111;
+    color: #fff;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+.search-container input:focus {
+    outline: none;
+    border-color: #e6c200;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    transform: scale(1.02);
+}
+.search-container::before {
+    content: '\f002';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: clamp(0.9rem, 3vw, 1rem);
+}
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #e6c200;
-        }
+/* === Products Grid === */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+    gap: clamp(0.5rem, 2vw, 1rem);
+    padding: var(--padding-unit);
+}
+.product {
+    background-color: #111;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 0.5rem;
+    transition: transform 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+.product:hover {
+    transform: scale(1.02);
+}
 
-        * {
-            scrollbar-color: var(--gold) #111;
-            scrollbar-width: thin;
-        }
+/* === Product Image Swap === */
+.product-image-container {
+    position: relative;
+    width: 100%;
+    height: clamp(150px, 40vw, 200px);
+}
+.product-image-front, .product-image-back {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+}
+.product-image-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.product-image-container:hover .product-image-front {
+    opacity: 0;
+}
+.product-image-container:hover .product-image-back {
+    opacity: 1;
+}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--padding-unit);
-            background-color: var(--black);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-        }
+/* === Modal Main Image === */
+.main-image-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--light-gray);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.main-image:hover {
+    transform: scale(1.03);
+}
 
-        header img.logo {
-            width: clamp(80px, 15vw, 100px);
-            height: auto;
-            border-radius: 50%;
-            order: 2;
-            margin: 0 auto;
-        }
-
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-            font-size: clamp(1.2rem, 5vw, 1.4rem);
-            color: var(--gold);
-            padding: 0.5rem;
-            order: 1;
-        }
+/* === Thumbnails === */
+.thumbnail-container {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+.thumbnail {
+    width: clamp(70px, 15vw, 90px);
+    height: clamp(70px, 15vw, 90px);
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition), transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+}
+.thumbnail:hover {
+    border-color: var(--accent-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+.thumbnail.active {
+    border-color: var(--accent-secondary);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+}
 
         .cart-count {
             position: absolute;
@@ -1060,3 +1212,4 @@
     </script>
 </body>
 </html>
+
