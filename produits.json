@@ -255,25 +255,9 @@
     "attributes": "Trucker style cap, mesh back, dark green front panel, white mesh, white 'On Black' logo on the front."
   },
   {
-    "id": "17",
-    "name": "On Black Cloud White Trucker Cap",
-    "price": 5000,
-    "description": "This monochrome white cap is a versatile and timeless accessory. The entire cap is a clean white, with the 'On Black' logo embroidered in a contrasting black for a bold and modern finish. It's an essential piece for a minimalist or street-style look.",
-    "stock": 50,
-    "color": "White",
-    "sizes": ["OneSize"],
-    "type": "Caps",
-    "images": [
-      "img/whitecap.jpg"
-  
-     
-    ],
-    "attributes": "All-white cap, trucker style cap, mesh back, white front panel and mesh, black 'On Black' logo on the front."
-  },
-  {
     "id": "18",
     "name": "On Black White Tee",
-    "price": 10000,
+    "price": 5000,
     "description": "A clean, crisp white t-shirt with a black 'On Black' logo on the chest. The back also features a QR code and 'ON BLACK ORIGINALS MADE IN CAMEROON' text. It's made from a soft, cotton-like fabric.",
     "stock": 50,
     "color": "White",
@@ -284,5 +268,51 @@
       "img/whitetee.jpg"
     ],
     "attributes": "Cotton-like, classic fit, round neck, white color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
+  },
+  {
+    "id": "19",
+    "name": "On Black TankTop",
+    "price": 5000,
+    "description": "A clean, crisp white t-shirt with a black 'On Black' logo on the chest. The back also features a QR code and 'ON BLACK ORIGINALS MADE IN CAMEROON' text. It's made from a soft, cotton-like fabric.",
+    "stock": 50,
+    "color": ["White","Grey","Black"],
+    "sizes": ["XL", "XXL"],
+    "type": "Tshirts",
+    "images": [
+      "img/3-2tank.jpg",
+      
+    ],
+    "attributes": "Cotton-like, classic fit, round neck, white color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   }
+  ,
+  {
+    "id": "20",
+    "name": "On Black Trucker Cap",
+    "price": 5000,
+    "description": "This monochrome cap is a versatile and timeless accessory. The entire cap is a clean white, with the 'On Black' logo embroidered in a contrasting black for a bold and modern finish. It's an essential piece for a minimalist or street-style look.",
+    "stock": 50,
+    "color": ["Orange","Brown","Green","White","Red"],
+    "sizes": ["OneSize"],
+    "type": "Caps",
+    "images": [
+      "img/allcap.jpg"     
+    ],
+    "attributes": "All-white cap, trucker style cap, mesh back, white front panel and mesh, black 'On Black' logo on the front."
+  },
+  {
+    "id": "21",
+    "name": "On Black TankTop",
+    "price": 5000,
+    "description": "A clean, crisp white t-shirt with a black 'On Black' logo on the chest. The back also features a QR code and 'ON BLACK ORIGINALS MADE IN CAMEROON' text. It's made from a soft, cotton-like fabric.",
+    "stock": 50,
+    "color": ["White"],
+    "sizes": ["XL", "XXL"],
+    "type": "Tshirts",
+    "images": [
+      "img/whitetank.jpg",
+      
+    ],
+    "attributes": "Cotton-like, classic fit, round neck, white color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
+  }
+  ,
 ]
