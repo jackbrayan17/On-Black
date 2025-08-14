@@ -9,8 +9,8 @@ let selectedProduct = null;
 let allProducts = [];
 let currentType = 'All';
 let searchQuery = '';
-const websiteUrl = 'https://onblack.com';
-const phone = '237694103585';
+const websiteUrl = 'https://on-black.vercel.app';
+const phone = '237697336997';
 const placeholderImage = 'img/logo.jpg';
 
 // === Utils: format price ===
