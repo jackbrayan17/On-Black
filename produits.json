@@ -279,8 +279,7 @@
     "sizes": ["XL", "XXL"],
     "type": "Tshirts",
     "images": [
-      "img/3-2tank.jpg",
-      
+      "img/3-2tank.jpg"
     ],
     "attributes": "Cotton-like, classic fit, round neck, white color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   }
@@ -309,8 +308,7 @@
     "sizes": ["XL", "XXL"],
     "type": "Tshirts",
     "images": [
-      "img/whitetank.jpg",
-      
+      "img/whitetank.jpg"
     ],
     "attributes": "Cotton-like, classic fit, round neck, white color, black logo on the chest, tag with a QR code, 'WARNING' tag on the bottom right corner."
   }
@@ -639,4 +637,221 @@
   "images": ["N_img/cargogrey.jpg","N_img/cargo2-1.jpg"],
   "attributes": "Extra-wide leg, cinching side ties, lightweight nylon-style fabric, distinctive brand logo hits."
 }
+,
+  {
+    "id": "49",
+    "name": "On Black Union Force Tee Noir",
+    "price": 10000,
+    "description": "T-shirt noir avec imprimé 'L'UNION FAIT LA FORCE' multicolore et QR code au dos. Coupe classique, prêt pour le daily.",
+    "stock": 50,
+    "color": "Black",
+    "sizes": ["M", "L", "XL"],
+    "type": "Tshirts",
+    "images": ["N_img2/blacktshirt-front.jpeg", "N_img2/blacktshirt-back.jpeg"],
+    "attributes": "Cotton-like, round neck, front multicolor print, back QR code branding."
+  },
+  {
+    "id": "50",
+    "name": "On Black Union Force Tee Blanc",
+    "price": 10000,
+    "description": "T-shirt blanc avec imprimé 'L'UNION FAIT LA FORCE' multicolore et QR code au dos. Basique clean pour tous les looks.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["M", "L", "XL"],
+    "type": "Tshirts",
+    "images": ["N_img2/whitetshirt-front.jpeg", "N_img2/whitetshirt-back.jpeg"],
+    "attributes": "Cotton-like, round neck, front multicolor print, back QR code branding."
+  },
+  {
+    "id": "51",
+    "name": "On Black Polo Noir + Cap",
+    "price": 7000,
+    "description": "Polo noir avec branding On Black et visuel 'STAY ORIGINAL' au dos, présenté avec la casquette assortie.",
+    "stock": 50,
+    "color": "Black",
+    "sizes": ["M", "L", "XL"],
+    "type": "Polos",
+    "images": ["N_img2/BlackPoloNHat-front.jpeg", "N_img2/BlackPoloNHat-back.jpeg"],
+    "attributes": "Classic polo, short sleeves, matching cap in visuals, chest crest logo, hem warning patch."
+  },
+  {
+    "id": "52",
+    "name": "On Black Polo Blanc + Cap",
+    "price": 7000,
+    "description": "Polo blanc clean avec crest On Black et motif 'STAY ORIGINAL' au dos, présenté avec la casquette assortie.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["M", "L", "XL"],
+    "type": "Polos",
+    "images": ["N_img2/WhitePoloNHat-front.jpeg", "N_img2/WhitePoloNHat-back.jpeg"],
+    "attributes": "Classic polo, short sleeves, matching cap in visuals, chest crest logo, hem warning patch."
+  },
+  {
+    "id": "53",
+    "name": "On Black Polo Orange + Cap",
+    "price": 7000,
+    "description": "Polo orange punchy avec crest On Black et message 'STAY ORIGINAL' au dos, présenté avec la casquette assortie.",
+    "stock": 50,
+    "color": "Orange",
+    "sizes": ["M", "L", "XL"],
+    "type": "Polos",
+    "images": ["N_img2/OrangePoloNHat.jpeg", "N_img2/OrangePolo-back.jpeg"],
+    "attributes": "Classic polo, short sleeves, matching cap in visuals, chest crest logo, hem warning patch."
+  },
+  {
+    "id": "54",
+    "name": "On Black Polo Rose + Cap",
+    "price": 7000,
+    "description": "Polo rose avec crest On Black et visuel 'STAY ORIGINAL' au dos, présenté avec la casquette assortie.",
+    "stock": 50,
+    "color": "Pink",
+    "sizes": ["M", "L", "XL"],
+    "type": "Polos",
+    "images": ["N_img2/PinkPoloNHat-front.jpeg", "N_img2/PinkPoloNHat-back.jpeg"],
+    "attributes": "Classic polo, short sleeves, matching cap in visuals, chest crest logo, hem warning patch."
+  },
+  {
+    "id": "55",
+    "name": "On Black Polo Beige + Cap",
+    "price": 7000,
+    "description": "Polo beige avec crest On Black et texte 'STAY ORIGINAL' au dos, présenté avec la casquette assortie.",
+    "stock": 50,
+    "color": "Beige",
+    "sizes": ["M", "L", "XL"],
+    "type": "Polos",
+    "images": ["N_img2/BeigePoloNHat-front.jpeg", "N_img2/BeigePoloNHat-back.jpeg"],
+    "attributes": "Classic polo, short sleeves, matching cap in visuals, chest crest logo, hem warning patch."
+  },
+  {
+    "id": "56",
+    "name": "On Black Satin Tie Brun",
+    "price": 2000,
+    "description": "Cravate satinée brune avec logo discret, finish mat élégant.",
+    "stock": 50,
+    "color": "Brown",
+    "sizes": ["OneSize"],
+    "type": "Ties",
+    "images": ["N_img2/browntie.jpeg"],
+    "attributes": "Standard width, soft drape, stitched logo."
+  },
+  {
+    "id": "57",
+    "name": "On Black Satin Tie Gris",
+    "price": 2000,
+    "description": "Cravate satinée grise avec logo contrasté, style business sharp.",
+    "stock": 50,
+    "color": "Grey",
+    "sizes": ["OneSize"],
+    "type": "Ties",
+    "images": ["N_img2/greytie.jpeg"],
+    "attributes": "Standard width, soft drape, stitched logo."
+  },
+  {
+    "id": "58",
+    "name": "On Black Satin Tie Vert",
+    "price": 2000,
+    "description": "Cravate satinée verte avec crest OB, touche couleur maîtrisée.",
+    "stock": 50,
+    "color": "Green",
+    "sizes": ["OneSize"],
+    "type": "Ties",
+    "images": ["N_img2/greentie.jpeg"],
+    "attributes": "Standard width, soft drape, stitched crest logo."
+  },
+  {
+    "id": "59",
+    "name": "On Black Inner Wear Homme",
+    "price": 5000,
+    "description": "Débardeur inner wear homme blanc avec logos frontaux, doux et léger.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["L", "XL", "XXL"],
+    "type": "Innerwear",
+    "images": ["N_img2/innerwearmale-white.jpeg"],
+    "attributes": "Lightweight knit, sleeveless, crest and pattern logos."
+  },
+  {
+    "id": "60",
+    "name": "On Black Inner Wear Femme",
+    "price": 3000,
+    "description": "Camisole inner wear femme blanche avec logos contrastés, confortable pour le layering.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["S", "M", "L"],
+    "type": "Innerwear",
+    "images": ["N_img2/innerwearfemale-white.jpeg"],
+    "attributes": "Lightweight knit, spaghetti straps, crest and pattern logos."
+  },
+  {
+    "id": "61",
+    "name": "On Black Leather Jacket White",
+    "price": 25000,
+    "description": "Veste en cuir blanche avec grand logo noir et patch warning, zip frontal.",
+    "stock": 50,
+    "color": "White",
+    "sizes": ["M", "L"],
+    "type": "Jackets",
+    "images": ["N_img2/whiteleatherjacket.jpeg"],
+    "attributes": "Faux leather, front zip, bold chest logo, warning patch."
+  },
+  {
+    "id": "62",
+    "name": "On Black Leather Jacket Grey",
+    "price": 30000,
+    "description": "Veste en cuir grise métallisée avec logo noir et patch warning, zip frontal.",
+    "stock": 50,
+    "color": "Grey",
+    "sizes": ["M", "L"],
+    "type": "Jackets",
+    "images": ["N_img2/greyleatherjacket.jpeg"],
+    "attributes": "Faux leather, front zip, bold chest logo, warning patch."
+  },
+  {
+    "id": "63",
+    "name": "On Black Suit Blazer Grey",
+    "price": 25000,
+    "description": "Veste de costume grise avec crest OB et motifs géométriques, coupe nette.",
+    "stock": 50,
+    "color": "Grey",
+    "sizes": ["M", "L", "XL"],
+    "type": "Jackets",
+    "images": ["N_img2/greysuit-jacket.jpeg"],
+    "attributes": "Suit blazer, single-breasted, printed crest and pattern, lined interior."
+  },
+  {
+    "id": "64",
+    "name": "On Black Suit Pant Grey",
+    "price": 8000,
+    "description": "Pantalon de costume gris assorti avec patch signature au dos.",
+    "stock": 50,
+    "color": "Grey",
+    "sizes": ["M", "L", "XL"],
+    "type": "Pants",
+    "images": ["N_img2/greysuit-full.jpeg"],
+    "attributes": "Tailored fit, belt loops, signature back patch."
+  },
+  {
+    "id": "65",
+    "name": "On Black Cargo Duo",
+    "price": 8000,
+    "description": "Pantalon cargo ample avec options marron et gris, esprit street parachute.",
+    "stock": 50,
+    "color": ["Brown", "Grey"],
+    "sizes": ["OneSize"],
+    "type": "Pants",
+    "images": ["N_img2/brwoncargo.jpeg", "N_img2/greycargo.jpeg", "N_img2/brownNgreycargo.jpeg"],
+    "attributes": "Baggy fit, adjustable hem, lightweight fabric."
+  },
+  {
+    "id": "66",
+    "name": "On Black Caps OB Crest",
+    "price": 5000,
+    "description": "Casquettes OB crest en coloris variés (noir, blanc, beige, orange, rose).",
+    "stock": 50,
+    "color": ["Black", "White", "Beige", "Orange", "Pink"],
+    "sizes": ["OneSize"],
+    "type": "Caps",
+    "images": ["N_img2/OB-hats.jpeg"],
+    "attributes": "Structured crown, curved brim, embroidered crest."
+  }
 ]
